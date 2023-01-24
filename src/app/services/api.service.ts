@@ -12,7 +12,7 @@ export class ApiService {
 
     async request(endpoint : string  = 'films'): Promise<films[]>{
         return new Promise((resolve , reject)=>{
-            this.client.get(this.baseUrl).subscribe((data: any)=> {
+            this.client.get(`${this.baseUrl} ${endpoint}`).subscribe((data: any)=> {
               let  allFilms : films[] = [];
               allFilms = data.results as films[];
               resolve(allFilms);
